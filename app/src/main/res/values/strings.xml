@@ -30,4 +30,10 @@
     <string name="delivered_text">Delivered</string>
     <string name="sending_text">Sending...</string>
     <string name="failed_text">Failed</string>
+    
+    <string name="book">&#xf02d;</string>
+    <string name="game">&#xf11b;</string>
+    <string name="question">&#xf29c;</string>
+    <string name="lock">&#xf13e;</string>
+    <string name="slient">&#xf028;</string>
 </resources>

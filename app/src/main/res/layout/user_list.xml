@@ -3,15 +3,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical" >
-     <ListView
-            android:id="@+id/list"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:id="@+id/line1">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="0.02"
+        android:fontFamily="serif"
+        android:text="Kontrol etmek istediğiniz kişinin email adresini kayit ediniz!!!"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccentt"
+        android:textStyle="bold"
+        android:background="@android:color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:id="@+id/line2">
+
+        <EditText
+            android:id="@+id/edittext"
+            style="@style/editext_graybg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@color/main_color_green"
-            android:dividerHeight="1dp"
-            tools:listitem="@layout/chat_item" >
-        </ListView>
+            android:layout_height="50dp"
+            android:gravity="start"
+            android:textColor="@color/colorAccentt" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:background="@color/colorAccentt"
+            android:text="@string/register" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:divider="@color/colorAccentt"
+        android:dividerHeight="1dp"
+        tools:listitem="@layout/send_item"></ListView>
 
 </LinearLayout>

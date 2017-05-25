@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "508591022560-bvtr5jgpgjj83ubg3jl6p1na302v1asi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ibrhm.parentlock",
+            "certificate_hash": "cd96f02a2dc11b82a945805f1d9c2206b0bc8117"
+          }
+        },
+        {
           "client_id": "508591022560-rgtcovrpa806mi9puibgiu7epmv8ceut.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508591022560-rgtcovrpa806mi9puibgiu7epmv8ceut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

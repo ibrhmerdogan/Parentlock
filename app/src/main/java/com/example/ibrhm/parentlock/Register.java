@@ -29,7 +29,7 @@ import java.util.logging.Logger;
 
 /**
  * The Class Register is the Activity class that shows user registration screen
- * that allows user to register itself on Parse server for this Chat app.
+ * that allows user to register itself on Parse server for this SendCommand app.
  */
 public class Register extends CustomActivity
 {
@@ -110,8 +110,8 @@ public class Register extends CustomActivity
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Logger.getLogger(Register.class.getName()).log(Level.ALL, "User profile updated.");
-                                // Construct the ChatUser
-                                UserList.user = new ChatUser(user.getUid(),displayName, email,true,defaultRoom);
+                                // Construct the User
+                                UserList.user = new User(user.getUid(),displayName, email,true,defaultRoom,null);
                                 // Setup link to users database
                                 FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).setValue(UserList.user);
                                 startActivity(new Intent(Register.this, UserList.class));

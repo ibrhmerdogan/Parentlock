@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+
+        android:background="@color/white"
+        android:fontFamily="serif"
+        android:padding="@dimen/pad_10dp"
+        android:text="Uygulamak istediğiniz komutu seçiniz!!"
+        android:textColor="@color/colorAccentt"
+        android:textColorLink="@color/white"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView2"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/pad_20dp"
+        android:background="@color/colorPrimary"
+        android:weightSum="2">
+         <LinearLayout
+             android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary"
+            android:weightSum="2"
+             android:layout_weight="1">
+            <Button
+                android:id="@+id/bookbutton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccentt"
+                android:text="@string/book"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:textSize="100dp"
+                android:layout_weight = "1"
+                android:layout_marginRight="5dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/gamebutton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccentt"
+                android:text="@string/game"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:textSize="100dp"
+                android:layout_weight = "1"
+                android:layout_marginLeft="5dp">
+
+            </Button>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary"
+            android:weightSum="2"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/questionbutton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccentt"
+                android:text="@string/question"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:textSize="100dp"
+                android:layout_weight = "1"
+                android:layout_marginRight="5dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/lockbutton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccentt"
+                android:text="@string/lock"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:textSize="100dp"
+                android:layout_weight = "1"
+                android:layout_marginLeft="5dp">
+
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

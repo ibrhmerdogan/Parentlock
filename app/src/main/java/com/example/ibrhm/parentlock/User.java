@@ -14,28 +14,34 @@ import java.util.ArrayList;
  * The Class ChatUse is a Java Bean class that represents a single user.
  */
 @IgnoreExtraProperties
-public class ChatUser implements Serializable {
+public class User implements Serializable {
 
     public String id;
     public String username;
     public String email;
     public Boolean online;
     public ArrayList<String> room;
+    public String selection;
 
-    public ChatUser() {
+    public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public ChatUser(String id, String username, String email, Boolean online, ArrayList<String> room) {
+    public User(String id, String username, String email, Boolean online, ArrayList<String> room,String selection) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.online = online;
         this.room = room;
+        this.selection = selection;
     }
 
     public String getUsername() {
         return username;
+    }
+
+    public String getSelection() {
+        return selection;
     }
 
     public String getId() {
@@ -66,6 +72,7 @@ public class ChatUser implements Serializable {
         this.email = email;
     }
 
+    public void setSelection(String selection){this.selection = selection;}
     public void setOnline(Boolean online) {
         this.online = online;
     }

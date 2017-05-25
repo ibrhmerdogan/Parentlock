@@ -6,13 +6,17 @@ package com.example.ibrhm.parentlock;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ibrhm.parentlock.Utils.Utils;
+import com.example.ibrhm.parentlock.database.NotForgetSignDB.DBOperations;
+import com.example.ibrhm.parentlock.database.NotForgetSignDB.SignDB;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,12 +27,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-/**
- * The Class Login is an Activity class that shows the login screen to users.
- * The current implementation simply includes the options for Login and button
- * for Register. On login button click, it sends the Login details to Parse
- * server to verify user.
- */
 public class Login extends CustomActivity
 {
 
@@ -38,23 +36,34 @@ public class Login extends CustomActivity
     /** The password edittext. */
     private EditText pwd;
 
+    private CheckBox checkBox;
+
     /** Login progress dialog */
     private ProgressDialog loginProgressDlg;
 
     /* (non-Javadoc)
 	 * @see com.chatt.custom.CustomActivity#onCreate(android.os.Bundle)
 	 */
+    SignDB signDB;
+    DBOperations operations;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
         setTouchNClick(R.id.btnLogin);
         setTouchNClick(R.id.btnReg);
-
+        signDB = new SignDB(this);
+        operations = new DBOperations();
+        checkBox = (CheckBox)findViewById(R.id.checkBox);
         user = (EditText) findViewById(R.id.user);
         pwd = (EditText) findViewById(R.id.pwd);
+       Cursor cursor = operations.getRegister(signDB);
+        if(cursor.moveToNext())
+        {
+            user.setText(cursor.getString(cursor.getColumnIndex("email")));
+            pwd.setText(cursor.getString(cursor.getColumnIndex("password")));
+        }
 
     }
 
@@ -78,7 +87,14 @@ public class Login extends CustomActivity
             {
                 Utils.showDialog(this, R.string.err_fields_empty);
                 return;
-            }
+            }else
+                {
+                    if(checkBox.isChecked())
+                    {
+                        operations.register(user,password,signDB);
+                    }
+
+                }
 
             // Do the user authentication
             FirebaseAuth.getInstance().signInWithEmailAndPassword(user, password)
@@ -96,7 +112,7 @@ public class Login extends CustomActivity
                             else {
                                 ArrayList<String> defaultRoom = new ArrayList<String>();
                                 defaultRoom.add("home");
-                                UserList.user = new ChatUser(task.getResult().getUser().getUid(),task.getResult().getUser().getDisplayName(), task.getResult().getUser().getEmail(),true,defaultRoom);
+                                UserList.user = new User(task.getResult().getUser().getUid(),task.getResult().getUser().getDisplayName(), task.getResult().getUser().getEmail(),true,defaultRoom,null);
                                 startActivity(new Intent(Login.this, UserList.class));
                                 finish();
                             }

@@ -12,10 +12,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 /**
- * The Class ChattApp is the Main Application class of this app. The onCreate
+ * The Class App is the Main Application class of this app. The onCreate
  * method of this class initializes the Parse.
  */
-public class ChattApp extends Application
+public class App extends Application
 {
 
     /** The Firebase database */

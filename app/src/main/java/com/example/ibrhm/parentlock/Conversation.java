@@ -8,7 +8,7 @@ package com.example.ibrhm.parentlock;
 import java.util.Date;
 
 /**
- * The Class Conversation is a Java Bean class that represents a single chat
+ * The Class Conversation is a Java Bean class that represents a single book_view
  * conversation message.
  */
 public class Conversation
